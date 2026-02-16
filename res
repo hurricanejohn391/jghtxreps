@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTXreps - Premium Replica Fashion</title>
+    <title>HTXreps - Custom Replica Orders</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -15,6 +15,9 @@
             --terracotta: #D4856A;
             --sand: #E8DCC4;
             --forest: #4A5F4F;
+            --navy: #2C3E50;
+            --gold: #D4A574;
+            --teal: #5A9B9B;
         }
         * {
             margin: 0;
@@ -32,14 +35,14 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(250, 248, 243, 0.95);
+            background: linear-gradient(135deg, var(--navy) 0%, var(--charcoal) 100%);
             backdrop-filter: blur(10px);
             padding: 1.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
-            border-bottom: 1px solid rgba(42, 42, 42, 0.1);
+            border-bottom: 2px solid var(--gold);
             animation: slideDown 0.6s ease-out;
         }
         @keyframes slideDown {
@@ -51,7 +54,8 @@
             font-size: 2rem;
             font-weight: 900;
             letter-spacing: -0.02em;
-            color: var(--charcoal);
+            color: var(--cream);
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
         .nav-links {
             display: flex;
@@ -60,7 +64,7 @@
         }
         .nav-links a {
             text-decoration: none;
-            color: var(--charcoal);
+            color: var(--cream);
             font-weight: 500;
             font-size: 0.95rem;
             letter-spacing: 0.02em;
@@ -74,19 +78,21 @@
             left: 0;
             width: 0;
             height: 2px;
-            background: var(--terracotta);
+            background: var(--gold);
             transition: width 0.3s ease;
         }
         .nav-links a:hover:after { width: 100%; }
-        .nav-links a:hover { color: var(--terracotta); }
+        .nav-links a:hover { color: var(--gold); }
+        
         .hero {
             margin-top: 90px;
-            min-height: 90vh;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            padding: 3rem 5%;
-            gap: 4rem;
+            padding: 4rem 5%;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
@@ -97,10 +103,22 @@
             right: -20%;
             width: 600px;
             height: 600px;
-            background: radial-gradient(circle, var(--sage) 0%, transparent 70%);
-            opacity: 0.15;
+            background: radial-gradient(circle, var(--teal) 0%, var(--sage) 50%, transparent 70%);
+            opacity: 0.2;
             z-index: 0;
             animation: float 8s ease-in-out infinite;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -30%;
+            left: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, var(--gold) 0%, var(--terracotta) 50%, transparent 70%);
+            opacity: 0.15;
+            z-index: 0;
+            animation: float 10s ease-in-out infinite reverse;
         }
         @keyframes float {
             0%, 100% { transform: translateY(0) rotate(0deg); }
@@ -108,6 +126,7 @@
         }
         .hero-content {
             z-index: 1;
+            max-width: 900px;
             animation: fadeInUp 0.8s ease-out 0.2s both;
         }
         @keyframes fadeInUp {
@@ -116,7 +135,7 @@
         }
         .hero h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
+            font-size: 5rem;
             font-weight: 900;
             line-height: 1.1;
             margin-bottom: 1.5rem;
@@ -124,265 +143,141 @@
             letter-spacing: -0.03em;
         }
         .hero-subtitle {
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             color: var(--forest);
-            margin-bottom: 2.5rem;
+            margin-bottom: 1.5rem;
             font-weight: 300;
             line-height: 1.8;
         }
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--charcoal);
+            margin-bottom: 3rem;
+            line-height: 1.8;
         }
         .btn {
-            padding: 1rem 2.5rem;
+            padding: 1.2rem 3rem;
             border: none;
-            font-size: 1rem;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
             text-decoration: none;
             display: inline-block;
             letter-spacing: 0.03em;
-        }
-        .btn-primary {
             background: var(--terracotta);
             color: white;
             box-shadow: 0 4px 20px rgba(212, 133, 106, 0.3);
+            border-radius: 4px;
         }
-        .btn-primary:hover {
+        .btn:hover {
             background: #C07458;
             transform: translateY(-2px);
             box-shadow: 0 6px 25px rgba(212, 133, 106, 0.4);
         }
-        .btn-secondary {
-            background: transparent;
-            color: var(--charcoal);
-            border: 2px solid var(--charcoal);
-        }
-        .btn-secondary:hover {
-            background: var(--charcoal);
-            color: var(--cream);
-        }
-        .hero-image {
-            position: relative;
-            z-index: 1;
-            animation: fadeInUp 0.8s ease-out 0.4s both;
-        }
-        .image-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-            max-width: 600px;
-            margin-left: auto;
-        }
-        .image-card {
-            position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            aspect-ratio: 3/4;
-            background: var(--sand);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            transition: transform 0.4s ease;
-        }
-        .image-card:hover { transform: translateY(-8px); }
-        .image-card:nth-child(2) { margin-top: 3rem; }
-        .features {
-            padding: 8rem 5%;
-            background: linear-gradient(180deg, var(--cream) 0%, var(--sand) 100%);
-            position: relative;
+
+        .info-section {
+            padding: 6rem 5%;
+            background: linear-gradient(135deg, #ffffff 0%, var(--cream) 50%, #f5f5f5 100%);
         }
         .section-title {
             text-align: center;
             font-family: 'Playfair Display', serif;
             font-size: 3rem;
             font-weight: 700;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
             color: var(--charcoal);
         }
-        .features-grid {
+        .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 3rem;
             max-width: 1200px;
             margin: 0 auto;
         }
-        .feature-card {
-            background: white;
-            padding: 3rem 2rem;
+        .info-card {
+            background: var(--cream);
+            padding: 2.5rem;
             border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
-            transition: all 0.4s ease;
-            animation: fadeInUp 0.6s ease-out both;
+            border-left: 4px solid var(--teal);
+            transition: all 0.3s ease;
         }
-        .feature-card:nth-child(1) { animation-delay: 0.1s; }
-        .feature-card:nth-child(2) { animation-delay: 0.2s; }
-        .feature-card:nth-child(3) { animation-delay: 0.3s; }
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+        .info-card:nth-child(2) {
+            border-left-color: var(--terracotta);
         }
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
+        .info-card:nth-child(3) {
+            border-left-color: var(--gold);
         }
-        .feature-card h3 {
+        .info-card:nth-child(4) {
+            border-left-color: var(--sage);
+        }
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(90, 155, 155, 0.2);
+        }
+        .info-card h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             margin-bottom: 1rem;
-            color: var(--charcoal);
+            color: var(--navy);
         }
-        .feature-card p {
+        .info-card p {
             color: var(--forest);
             line-height: 1.8;
+            font-size: 1rem;
         }
-        .products {
-            padding: 8rem 5%;
-            background: var(--cream);
-        }
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2.5rem;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-        .product-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 6px 25px rgba(0,0,0,0.06);
-            transition: all 0.4s ease;
-            cursor: pointer;
-            animation: fadeInUp 0.6s ease-out both;
-        }
-        .product-card:nth-child(1) { animation-delay: 0.1s; }
-        .product-card:nth-child(2) { animation-delay: 0.2s; }
-        .product-card:nth-child(3) { animation-delay: 0.3s; }
-        .product-card:nth-child(4) { animation-delay: 0.4s; }
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-        }
-        .product-image {
-            width: 100%;
-            aspect-ratio: 3/4;
-            background: var(--sand);
-            position: relative;
-            overflow: hidden;
-        }
-        .product-tag {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: var(--terracotta);
+        .info-card p strong {
+            background: linear-gradient(135deg, var(--terracotta) 0%, var(--gold) 100%);
             color: white;
             padding: 0.5rem 1rem;
             border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 0.02em;
+            display: inline-block;
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(212, 133, 106, 0.3);
         }
-        .product-info {
-            padding: 1.5rem;
+        .info-card ul {
+            list-style: none;
+            padding: 0;
+            margin-top: 1rem;
         }
-        .product-info h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--charcoal);
-        }
-        .product-info .brand {
-            font-size: 0.9rem;
-            color: var(--forest);
-            margin-bottom: 1rem;
-        }
-        .product-price {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            font-weight: 600;
-        }
-        .current-price {
-            font-size: 1.3rem;
-            color: var(--terracotta);
-        }
-        .original-price {
-            font-size: 1rem;
-            color: #999;
-            text-decoration: line-through;
-        }
-        .payment-methods {
-            padding: 6rem 5%;
-            background: white;
-        }
-        .payment-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto 3rem;
-        }
-        .payment-card {
-            background: var(--cream);
-            padding: 2.5rem 2rem;
-            border-radius: 12px;
-            text-align: center;
-            border: 2px solid var(--sand);
-            transition: all 0.3s ease;
-        }
-        .payment-card:hover {
-            border-color: var(--terracotta);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-        .payment-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        .payment-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--charcoal);
-        }
-        .payment-card p {
-            color: var(--forest);
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
-        .payment-card strong {
-            color: var(--terracotta);
-            font-weight: 600;
-        }
-        .payment-notice {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-            background: var(--sand);
-            border-left: 4px solid var(--terracotta);
-            border-radius: 8px;
-            text-align: left;
-        }
-        .payment-notice p {
+        .info-card ul li {
+            padding: 0.5rem 0;
             color: var(--charcoal);
             font-weight: 500;
-            font-size: 1rem;
-            line-height: 1.6;
         }
-        .custom-orders {
+        .info-card ul li:before {
+            content: "→";
+            margin-right: 0.5rem;
+            color: var(--terracotta);
+            font-weight: 700;
+        }
+
+        .custom-order-section {
             padding: 6rem 5%;
-            background: var(--cream);
+            background: linear-gradient(180deg, var(--cream) 0%, var(--sand) 100%);
         }
         .custom-order-form-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background: white;
-            padding: 3rem;
+            padding: 3.5rem;
             border-radius: 12px;
             box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+        .form-intro {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .form-intro h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--charcoal);
+        }
+        .form-intro p {
+            font-size: 1.1rem;
+            color: var(--forest);
+            line-height: 1.8;
         }
         .custom-order-form {
             display: flex;
@@ -407,7 +302,7 @@
         .form-group input,
         .form-group textarea,
         .form-group select {
-            padding: 0.9rem 1.2rem;
+            padding: 1rem 1.2rem;
             border: 2px solid var(--sand);
             border-radius: 6px;
             font-size: 1rem;
@@ -423,53 +318,37 @@
         }
         .form-group textarea {
             resize: vertical;
-            min-height: 100px;
+            min-height: 120px;
         }
-        .newsletter {
-            padding: 6rem 5%;
-            background: var(--forest);
-            color: var(--cream);
+        
+        .payment-info {
+            background: var(--sand);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
             text-align: center;
         }
-        .newsletter h2 {
+        .payment-info h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
+            font-size: 1.5rem;
             margin-bottom: 1rem;
-            font-weight: 700;
+            color: var(--charcoal);
         }
-        .newsletter p {
-            font-size: 1.1rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
+        .payment-info ul {
+            list-style: none;
+            padding: 0;
         }
-        .newsletter-form {
-            display: flex;
-            max-width: 500px;
-            margin: 0 auto;
-            gap: 1rem;
+        .payment-info ul li {
+            padding: 0.4rem 0;
+            color: var(--charcoal);
         }
-        .newsletter-form input {
-            flex: 1;
-            padding: 1rem 1.5rem;
-            border: none;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-family: 'DM Sans', sans-serif;
+        .payment-info ul li:before {
+            content: "✓";
+            margin-right: 0.5rem;
+            color: var(--terracotta);
+            font-weight: bold;
         }
-        .newsletter-form button {
-            padding: 1rem 2rem;
-            background: var(--terracotta);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        .newsletter-form button:hover {
-            background: #C07458;
-            transform: translateY(-2px);
-        }
+
         footer {
             background: var(--charcoal);
             color: var(--cream);
@@ -506,62 +385,56 @@
             text-align: center;
             padding-top: 2rem;
             border-top: 1px solid rgba(250, 248, 243, 0.2);
-            opacity: 0.7;
         }
         .legal-notice {
-            background: rgba(212, 133, 106, 0.15);
-            border: 1px solid var(--terracotta);
-            border-radius: 8px;
-            padding: 1.5rem;
+            background: var(--terracotta);
+            color: white;
+            border: 3px solid var(--charcoal);
+            border-radius: 12px;
+            padding: 2rem;
             margin-bottom: 2rem;
             opacity: 1;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
         }
         .legal-notice p {
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
             line-height: 1.6;
+            font-weight: 600;
         }
         .legal-notice strong {
-            color: var(--terracotta);
-            font-weight: 700;
+            font-size: 1.3rem;
+            text-decoration: underline;
+            display: block;
+            margin-bottom: 0.5rem;
         }
         .legal-notice ul {
             list-style: none;
             padding: 0;
-            font-size: 0.9rem;
+            font-size: 1rem;
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 8px;
         }
         .legal-notice ul li {
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.8rem;
             padding-left: 1.5rem;
             position: relative;
+            font-weight: 500;
         }
         .legal-notice ul li:before {
-            content: "•";
+            content: "⚠";
             position: absolute;
             left: 0;
-            color: var(--terracotta);
             font-weight: bold;
+            font-size: 1.2rem;
         }
         @media (max-width: 768px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding: 2rem 5%;
-            }
             .hero h1 {
                 font-size: 3rem;
             }
-            .image-grid {
-                margin: 0 auto;
-            }
             .nav-links {
                 display: none;
-            }
-            .cta-buttons {
-                justify-content: center;
-            }
-            .newsletter-form {
-                flex-direction: column;
             }
             .form-row {
                 grid-template-columns: 1fr;
@@ -576,140 +449,106 @@
     <nav>
         <div class="logo">HTXreps</div>
         <ul class="nav-links">
-            <li><a href="#shop">Shop</a></li>
-            <li><a href="#custom-order">Custom Orders</a></li>
-            <li><a href="#about">About</a></li>
+            <li><a href="#order">Order Now</a></li>
+            <li><a href="#info">What We Offer</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <section class="hero">
         <div class="hero-content">
-            <h1>Timeless Style, Second Life</h1>
-            <p class="hero-subtitle">Discover high-quality replica fashion pieces at unbeatable prices. Style that's accessible to everyone.</p>
-            <div class="cta-buttons">
-                <a href="#shop" class="btn btn-primary">Shop Collection</a>
-                <a href="#custom-order" class="btn btn-secondary">Custom Orders</a>
-            </div>
-        </div>
-        <div class="hero-image">
-            <div class="image-grid">
-                <div class="image-card"></div>
-                <div class="image-card"></div>
-            </div>
+            <h1>Custom Replica Orders</h1>
+            <p class="hero-subtitle">Premium Quality. Unbeatable Prices. Your Style.</p>
+            <p class="hero-description">Tell us what you want, and we'll source it for you. From luxury watches to designer clothing, we get you the replicas you're looking for at prices that won't break the bank.</p>
+            <a href="#order" class="btn">Start Your Custom Order</a>
         </div>
     </section>
 
-    <section class="features">
-        <h2 class="section-title">Why Choose HTXreps</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">💎</div>
-                <h3>Premium Replicas</h3>
-                <p>High-quality replica items that give you the designer look without the designer price tag.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">✨</div>
-                <h3>Quality Assured</h3>
-                <p>Each item is carefully selected for quality. Great style shouldn't break the bank.</p>
-            </div>
-            <div class="feature-card">
-                <div class="feature-icon">💰</div>
-                <h3>Unbeatable Prices</h3>
-                <p>Designer aesthetics at a fraction of the cost. Luxury style made affordable.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="products" id="shop">
-        <h2 class="section-title">Featured Finds</h2>
-        <div class="products-grid">
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="product-tag">New Arrival</span>
+    <section style="background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%); padding: 2rem 5%; text-align: center; color: white; box-shadow: 0 4px 20px rgba(0,0,0,0.15);">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h3 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem;">⚠️ Important Notice</h3>
+            <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 1rem;"><strong>ALL ITEMS ARE REPLICA PRODUCTS</strong></p>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
+                <div style="background: rgba(255,255,255,0.15); padding: 1rem; border-radius: 10px; backdrop-filter: blur(10px);">
+                    <p style="font-size: 1rem; font-weight: 600;">💳 Upfront payment required</p>
                 </div>
-                <div class="product-info">
-                    <h3>Watches</h3>
-                    <p class="brand">Rolex,Audemars piget ,cartier etc</p>
-                    <div class="product-price">
-                        <span class="current-price">$390-500</span>
-                    </div>
+                <div style="background: rgba(255,255,255,0.15); padding: 1rem; border-radius: 10px; backdrop-filter: blur(10px);">
+                    <p style="font-size: 1rem; font-weight: 600;">📦 2+ week delivery time</p>
                 </div>
-            </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="product-tag">Sale</span>
+                <div style="background: rgba(255,255,255,0.15); padding: 1rem; border-radius: 10px; backdrop-filter: blur(10px);">
+                    <p style="font-size: 1rem; font-weight: 600;">🔄 No refunds (reorders only)</p>
                 </div>
-                <div class="product-info">
-                    <h3>Shoes</h3>
-                    <p class="brands"> Ysl, Timberland ,Louis Vuitton ,Christan Lubiton ,Dior ,Burberry etc</p>
-                    <div class="product-price">
-                        <span class="current-price">$160-180</span>
-                        <div class="product-size">
-                      <span class="sizes">EU39-45</span>
-                   </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="product-tag">Rare Find</span>
-                </div>
-                <div class="product-info">
-                    <h3>Y2K/designer clothes</h3>
-                    <p class="brands">Chrome Hearts ,Maison Margiela ,Rick Owens ,Balenciaga ,Moncler etc</p>
-                    <div class="product-price">   
-                      <span class="current-price">$60-120</span>
-                      <div class="product-size">
-                      <span class="sizes">S,M,L,Xl</span>
-                 </div>
-                </div>
-            </div>
-            <div class="product-card">
-                <div class="product-image">
-                    <span class="product-tag">Featured</span>
-                </div>
-                <div class="product-info">
-                    <h3>Accessories/fragrance</h3>
-                    <p class="brands">Ysl, Versace ,Valentino ,Chrome Hearts ,louis Vuttion ,Moncler etc</p>
-                    <div class="product-price">
-                        <span class="current-price">$60-150</span>
-                    </div>
+                <div style="background: rgba(255,255,255,0.15); padding: 1rem; border-radius: 10px; backdrop-filter: blur(10px);">
+                    <p style="font-size: 1rem; font-weight: 600;">🇺🇸 US/Local only</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="payment-methods">
-        <h2 class="section-title">Payment Options</h2>
-        <div class="payment-grid">
-            <div class="payment-card">
-                <div class="payment-icon">💸</div>
-                <h3>PayPal</h3>
-                <p>Send payment to:<br><strong>gulottajohn7@gmail.com</strong></p>
-                <a href="https://paypal.me/"@johngulotta391 class="btn btn-primary" target="_blank">Pay with PayPal</a>
+    <section class="info-section" id="info">
+        <h2 class="section-title">What We Can Get For You</h2>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>⌚ Watches</h3>
+                <p><strong>$390-500</strong></p>
+                <ul>
+                    <li>Rolex</li>
+                    <li>Audemars Piguet</li>
+                    <li>Cartier</li>
+                    <li>And more luxury brands etc.</li>
+                </ul>
             </div>
-          
-            <div class="payment-card">
-                <div class="payment-icon">💳</div>
-                <h3>Cash App</h3>
-                <p>Send payment to:<br><strong>$gulotta391</strong></p>
-                <a href="https://cash.app/$gulotta391" class="btn btn-primary" target="_blank">Pay with Cash App</a>
+
+            <div class="info-card">
+                <h3>👟 Shoes</h3>
+                <p><strong>$160-180 | EU 39-45</strong></p>
+                <ul>
+                    <li>YSL</li>
+                    <li>Timberland</li>
+                    <li>Louis Vuitton</li>
+                    <li>Christian Louboutin</li>
+                    <li>Dior</li>
+                    <li>Burberry</li>
+                    <li>etc.</li>
+                </ul>
             </div>
-            
-        </div>
-        <div class="payment-notice">
-            <p><strong>Payment Required:</strong> All purchases require upfront payment before shipping.</p>
-            <p style="margin-top: 1rem;"><strong>Shipping Timeline:</strong> Products take a minimum of 2 weeks to receive. Please allow additional time for processing and delivery.</p>
-            <p style="margin-top: 1rem; font-size: 0.95rem;"><strong>Lost/Seized Packages:</strong> In the event of package seizure or loss, we will reorder your item at no additional charge. Refunds are not available in these cases.</p>
+
+            <div class="info-card">
+                <h3>👕 Y2K/Designer Clothes</h3>
+                <p><strong>$60-120 | S, M, L, XL</strong></p>
+                <ul>
+                    <li>Chrome Hearts</li>
+                    <li>Maison Margiela</li>
+                    <li>Rick Owens</li>
+                    <li>Balenciaga</li>
+                    <li>Moncler</li>
+                    <li>etc.</li>
+                </ul>
+            </div>
+
+            <div class="info-card">
+                <h3>💼 Accessories/Fragrance</h3>
+                <p><strong>$60-150</strong></p>
+                <ul>
+                    <li>YSL</li>
+                    <li>Versace</li>
+                    <li>Valentino</li>
+                    <li>Chrome Hearts</li>
+                    <li>Louis Vuitton</li>
+                    <li>Moncler</li>
+                    <li>etc.</li>
+                </ul>
+            </div>
         </div>
     </section>
 
-    <section class="custom-orders" id="custom-order">
-        <h2 class="section-title">Custom Orders</h2>
-        <p style="text-align: center; max-width: 800px; margin: 0 auto 3rem; font-size: 1.1rem; color: var(--forest);">
-            Can't find what you're looking for? Send us images or the brand/item name, and we'll source it for you!
-        </p>
+    <section class="custom-order-section" id="order">
         <div class="custom-order-form-container">
+            <div class="form-intro">
+                <h2>Place Your Custom Order</h2>
+                <p>Fill out the form below with what you're looking for. Send us images, brand names, or detailed descriptions. We'll get back to you within 24-48 hours with availability and total price.</p>
+            </div>
+
             <form class="custom-order-form" id="customOrderForm">
                 <div class="form-row">
                     <div class="form-group">
@@ -739,57 +578,83 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="brandItem">Brand/Item Name</label>
-                    <input type="text" id="brandItem" name="brandItem" placeholder="e.g., Nike Air Jordan 1, Gucci Belt, Rolex Submariner">
+                    <label for="itemType">What are you looking for? *</label>
+                    <select id="itemType" name="itemType" required>
+                        <option value="">Select category...</option>
+                        <option value="watches">Watches ($390-500)</option>
+                        <option value="shoes">Shoes ($160-180)</option>
+                        <option value="clothes">Y2K/Designer Clothes ($60-120)</option>
+                        <option value="accessories">Accessories/Fragrance ($60-150)</option>
+                        <option value="other">Other/Multiple Items</option>
+                    </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="itemDescription">Item Description & Details</label>
-                    <textarea id="itemDescription" name="itemDescription" rows="4" placeholder="Size, color, specific model, any other details..."></textarea>
+                    <label for="brandItem">Brand/Item Name *</label>
+                    <input type="text" id="brandItem" name="brandItem" placeholder="e.g., Rolex Submariner, Nike Air Jordan 1, Chrome Hearts Hoodie" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="itemDescription">Full Description & Details *</label>
+                    <textarea id="itemDescription" name="itemDescription" rows="6" placeholder="Include: Size, color, specific model, style, any other details that will help us find exactly what you want..." required></textarea>
                 </div>
 
                 <div class="form-group">
                     <label for="imageUrl">Image URL (Optional)</label>
-                    <input type="url" id="imageUrl" name="imageUrl" placeholder="Paste image link here">
+                    <input type="url" id="imageUrl" name="imageUrl" placeholder="Paste image link here if you have one">
                     <p style="font-size: 0.85rem; color: var(--forest); margin-top: 0.5rem;">
-                        Or email images directly to: <strong>gulottajohn7@GMAIL.COM</strong>
+                        Or email images directly to: <strong>gulottajohn7@gmail.com</strong>
                     </p>
-               
+                </div>
 
-                <button type="submit" class="btn btn-primary" style="width: 100%; font-size: 1.1rem;">Submit Custom Order Request</button>
+                <div class="payment-info">
+                    <h3>💳 Payment Process</h3>
+                    <p><strong>Upfront payment required before shipping</strong></p>
+                    <p style="margin-top: 1rem;">After you submit this form, we'll send you an invoice via email or text with:</p>
+                    <ul style="text-align: left; margin: 1rem auto; max-width: 400px;">
+                        <li>Final price confirmation</li>
+                        <li>Payment instructions</li>
+                        <li>Order details</li>
+                    </ul>
+                    <p style="font-size: 1rem; font-weight: 600; color: var(--charcoal); margin-top: 1.5rem;">We accept:</p>
+                    <div style="display: flex; gap: 2rem; justify-content: center; margin-top: 1rem; flex-wrap: wrap;">
+                        <div style="text-align: center; background: linear-gradient(135deg, var(--teal) 0%, var(--sage) 100%); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(90, 155, 155, 0.2);">
+                            <p style="font-size: 1.5rem; font-weight: 700; color: white;">$gulotta391</p>
+                            <p style="font-size: 0.9rem; color: white; opacity: 0.9;">Cash App</p>
+                        </div>
+                        <div style="text-align: center; background: linear-gradient(135deg, var(--terracotta) 0%, var(--gold) 100%); padding: 1.5rem; border-radius: 12px; box-shadow: 0 4px 15px rgba(212, 133, 106, 0.2);">
+                            <p style="font-size: 1.2rem; font-weight: 700; color: white;">gulottajohn7@gmail.com</p>
+                            <p style="font-size: 0.9rem; color: white; opacity: 0.9;">PayPal</p>
+                        </div>
+                    </div>
+                    <p style="font-size: 0.95rem; color: var(--forest); margin-top: 1.5rem;">Once payment is received, we'll begin sourcing your order</p>
+                </div>
+
+                <button type="submit" class="btn" style="width: 100%; font-size: 1.2rem;">Submit Order Request</button>
             </form>
         </div>
-      
-    <footer>
+    </section>
+
+    <footer id="contact">
         <div class="footer-content">
             <div class="footer-section">
-                <h4>About HTXreps</h4>
-                <p>Premium replica fashion at accessible prices. Style for everyone.</p>
+                <h4>HTXreps</h4>
+                <p>Premium replica fashion at accessible prices. We source what you want.</p>
             </div>
             <div class="footer-section">
-                <h4>Quick Links</h4>
+                <h4>Contact</h4>
                 <ul>
-                    <li><a href="#shop">Shop All</a></li>
-                    <li><a href="#custom-order">Custom Orders</a></li>
-                    <li><a href="#about">Our Story</a></li>
-                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="https://instagram.com/John_Gulotta391" target="_blank">Instagram: @John_Gulotta391</a></li>
+                    <li><a href="mailto:gulottajohn7@gmail.com">Email: gulottajohn7@gmail.com</a></li>
+                    <li>Cash App: $gulotta391</li>
                 </ul>
             </div>
             <div class="footer-section">
-                <h4>Customer Care</h4>
+                <h4>Location</h4>
                 <ul>
-                    <li><a href="#shipping">Shipping Info</a></li>
-                    <li><a href="#returns">Returns</a></li>
-                    <li><a href="#sizing">Size Guide</a></li>
-                    <li><a href="#contact">Contact Us</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Connect</h4>
-                <ul>
-                    <li><a href="John_Gulotta391">Instagram</a></li>
-
-                    <li><a href="gulottajohn7@gmail.com">email</a></li>
+                    <li>Houston, TX</li>
+                    <li>Local meet ups available</li>
+                    <li>US shipping only</li>
                 </ul>
             </div>
         </div>
@@ -800,14 +665,14 @@
                     <li>All purchases require upfront payment</li>
                     <li>Products take a minimum of 2 weeks to receive</li>
                     <li>No refunds on watches, shoes, and accessories</li>
-                    <li>package tracking provided via email</li>
-                    <li>pictures provided before the order is finalized 15 day time period to recive refund for product</li>
-                    <li>Local meet ups or shipping no out of country business </li>
+                    <li>Package tracking provided via email</li>
+                    <li>Pictures provided before the order is finalized - 15 day time period to receive refund for product</li>
+                    <li>Local meet ups or shipping - no out of country business</li>
                     <li>If packages are seized or lost, money will NOT be refunded - we will reorder the item instead</li>
                     <li>All sales are final</li>
                 </ul>
             </div>
-            <p>&copy; 2026 HTXreps. All rights reserved.</p>
+            <p style="opacity: 0.7;">&copy; 2026 HTXreps. All rights reserved.</p>
         </div>
     </footer>
 
@@ -820,7 +685,7 @@
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             });
-       
+        });
 
         document.getElementById('customOrderForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -830,16 +695,16 @@
                 email: document.getElementById('customerEmail').value,
                 phone: document.getElementById('customerPhone').value,
                 preferredContact: document.getElementById('preferredContact').value,
+                itemType: document.getElementById('itemType').value,
                 brandItem: document.getElementById('brandItem').value,
                 description: document.getElementById('itemDescription').value,
-                imageUrl: document.getElementById('imageUrl').value,
-                budget: document.getElementById('budget').value
+                imageUrl: document.getElementById('imageUrl').value
             };
 
             const subject = encodeURIComponent(`Custom Order Request from ${formData.name}`);
             const body = encodeURIComponent(`
-CUSTOM ORDER REQUEST
-====================
+CUSTOM ORDER REQUEST - HTXreps
+================================
 
 Customer Information:
 ---------------------
@@ -850,23 +715,25 @@ Preferred Contact: ${formData.preferredContact}
 
 Order Details:
 --------------
-Brand/Item: ${formData.brandItem || 'Not specified'}
-Description: ${formData.description || 'Not specified'}
+Category: ${formData.itemType}
+Brand/Item: ${formData.brandItem}
+Description: ${formData.description}
 Image URL: ${formData.imageUrl || 'Not provided'}
-located: ${formData.located || 'Not specified'}
 
 Date Submitted: ${new Date().toLocaleString()}
+
+Payment Options: Cash App $gulotta391 or PayPal gulottajohn7@gmail.com
             `);
 
-            window.location.href = `mailto:gulottajohn7@GMAIL.COM?subject=${subject}&body=${body}`;
+            window.location.href = `mailto:gulottajohn7@gmail.com?subject=${subject}&body=${body}`;
 
-            alert(`Thank you, ${formData.name}! Your custom order request has been submitted. We'll contact you at ${formData.preferredContact === 'email' ? formData.email : formData.phone} within 24-48 hours with a quote and invoice.`);
+            alert(`Thank you, ${formData.name}! Your custom order request has been submitted.\n\nNext Steps:\n1. We'll review your request\n2. We'll send you an invoice via ${formData.preferredContact === 'email' ? 'email' : 'text'} within 24-48 hours\n3. Invoice will include final price and payment instructions\n\nPayment Options:\n• Cash App: $gulotta391\n• PayPal: gulottajohn7@gmail.com\n\nOnce payment is received, we'll start sourcing your order.\n\nQuestions? Contact us at gulottajohn7@gmail.com`);
             
             this.reset();
         });
 
         let lastScroll = 0;
-        window.addEventListener('scroll', () => {
+        window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
             const currentScroll = window.pageYOffset;
             
