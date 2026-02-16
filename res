@@ -632,7 +632,7 @@
                     <h3>Watches</h3>
                     <p class="brand">Rolex,Audemars piget ,cartier etc</p>
                     <div class="product-price">
-                        <span class="current-price">$390-490</span>
+                        <span class="current-price">$390-500</span>
                     </div>
                 </div>
             </div>
@@ -645,7 +645,9 @@
                     <p class="brands"> Ysl, Timberland ,Louis Vuitton ,Christan Lubiton ,Dior ,Burberry etc</p>
                     <div class="product-price">
                         <span class="current-price">$160-180</span>
-                    </div>
+                        <div class="product-size">
+                      <span class="sizes">EU39-45</span>
+                   </div>
                 </div>
             </div>
             <div class="product-card">
@@ -654,7 +656,7 @@
                 </div>
                 <div class="product-info">
                     <h3>Y2K/designer clothes</h3>
-                    <p class="brands">chrome hearts, maison margiela, rick owens, balenciaga, moncler etc</p>
+                    <p class="brands">Chrome Hearts ,Maison Margiela ,Rick Owens ,Balenciaga ,Moncler etc</p>
                     <div class="product-price">   
                       <span class="current-price">$60-120</span>
                       <div class="product-size">
